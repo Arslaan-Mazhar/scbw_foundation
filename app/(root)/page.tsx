@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-        <div className="flex-center ml-60 min-h-screen w-full bg-primary-50 bg-dotted-pattern bg-cover bg-fixed bg-center">
+        <div className="flex justify-center mt-24 items-center h-screen">
         <Image 
             src="/img3.jpg" width={1000} height={800}
             alt="Website Under Construction Image" 
