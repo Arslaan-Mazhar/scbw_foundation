@@ -1,10 +1,10 @@
 // NAVIGATION
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
-  { href: '/', key: 'About', label: 'About' },
-  { href: '/', key: 'services', label: 'Services' },
-  { href: '/', key: 'Donation', label: 'Donation' },
-  { href: '/', key: 'contact_us', label: 'Contact Us' },
+  { href: '/about', key: 'About', label: 'About' },
+  { href: '/services', key: 'services', label: 'Services' },
+  { href: '/donation', key: 'Donation', label: 'Donation' },
+  { href: '/contactUs', key: 'contact_us', label: 'Contact Us' },
 ];
 
 // CAMP SECTION
@@ -67,8 +67,8 @@ export const FOOTER_LINKS = [
 export const FOOTER_CONTACT_INFO = {
   title: 'Contact Us',
   links: [
-    { label: 'Admin Officer', value: '+92-332-9292311' },
-    { label: 'Email Officer', value: 'scbfoundation92@gmail.com' },
+    { label: 'Admin Officer:', value: '+92-332-9292311' },
+    { label: 'Email Address:', value: 'scbfoundation92@gmail.com' },
   ],
 };
 

@@ -2,26 +2,23 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../ui/button"
-// import NavItems from "@/components/shared/NavItems"
-// import MobileNav from "@/components/shared/MobileNav"
 import NavItems from "./NavItems"
 import MobileNav from "./MobileNav"
-import { Heading1 } from "lucide-react"
 const Header = () => {
   return (
     <header className="w-full border-b">
       <div className="wrapper flex items-center justify-between">
-        <Link href="/" className="w-36">
+        <Link href="/" className="md:mx-10 w-36">
           <Image 
             src="/logo1.png" width={128} height={38}
-            alt="Foundation logo" 
+            alt="SCBW Foundation logo" 
           />
         </Link>
-        <h1 className="font-bold">Special Campaign for <br /> Blind Welfere Foundation</h1>
-            <NavItems />
+        <h1 className="font-bold w-full ml-4">Special Campaign for <br /> Blind Welfere Foundation</h1>
 
         <SignedIn>
-          <nav className="md:flex-between hidden w-full max-w-xs">
+          <nav className="md:flex flex-between hidden w-full max-w-xs">
+            <NavItems />
           </nav>
         </SignedIn>
 
