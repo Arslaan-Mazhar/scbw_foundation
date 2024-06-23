@@ -73,12 +73,12 @@ export const FOOTER_CONTACT_INFO = {
 };
 
 export const SOCIALS = {
-  title: 'Social',
+  title: 'Social Media',
   links: [
-    '/facebook.svg',
-    '/instagram.svg',
-    '/twitter.svg',
-    '/youtube.svg',
-    '/wordpress.svg',
-  ],
+    { href: 'https://wa.me/923329292311', key: 'whatsapp', label: 'Chairman-Whatsapp', icon: '/whatsapp.svg'  },
+    { href: 'https://chat.whatsapp.com/EX1mpt7NsUz4DMEgaSY7Mt', key: 'whatsapp-group', label: 'Pak Whatsapp Group', icon: '/whatsapp.svg' },
+    { href: 'https://chat.whatsapp.com/F5Yobdz3xN9CD5fIz2sNbf', key: 'overseas-group', label: 'Overseas Whatsapp Group', icon: '/whatsapp.svg' },
+    { href: 'https://www.facebook.com/profile.php?id=100088904053983', key: 'fb', label: 'Facebook Page',icon:'/facebook.svg' },
+    { href: 'https://youtube.com/@specialcampaignforblindwelfare', key: 'Youtube', label: 'Youtube Account', icon:'/youtube.svg' },
+  ]
 };
