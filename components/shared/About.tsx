@@ -4,7 +4,7 @@ import Link from "next/link";
 const About = () => {
   return (
     <section className="bg-gray-100 h-1/2 p-10 rounded-xl" >
-      <div className="flex flex-col gap-3 md:flex-row items-stretch">
+      <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center">
         <div className="flex-none w-full md:w-1/2  md:h-full" >
           <Link href="/"  >
             <Image
