@@ -1,7 +1,9 @@
+
 // NAVIGATION
+import { FooterIcons } from "@/public/types";
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
-  { href: '/about', key: 'About', label: 'About' },
+  { href: `/about`, key: 'About', label: 'About' },
   { href: '/services', key: 'services', label: 'Services' },
   { href: '/donation', key: 'Donation', label: 'Donation' },
   { href: '/contactUs', key: 'contact_us', label: 'Contact Us' },
@@ -72,7 +74,7 @@ export const FOOTER_CONTACT_INFO = {
   ],
 };
 
-export const SOCIALS = {
+export const SOCIALS: FooterIcons = {
   title: 'Social Media',
   links: [
     { href: 'https://wa.me/923329292311', key: 'whatsapp', label: 'Chairman-Whatsapp', icon: '/whatsapp.svg'  },
