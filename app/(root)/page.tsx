@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ImageSlider from "../../components/ImageSlider";
 import VideoSlider from "@/components/VideoSlider";
-import About from "@/components/shared/About";
+import About from "./aboutUs/page";
 export default function Home() {
   return (
     <main>

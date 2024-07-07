@@ -2,7 +2,7 @@ export interface FooterIconsProps{
     href: string;
     key: string;
     icon: string;
-    label?: string;
+    label: string;
 }
 
 export interface FooterIcons {

@@ -16,7 +16,7 @@ const Header = () => {
         </Link>
         <h1 className="font-bold w-full ml-4">Special Campaign for <br /> Blind Welfere Foundation</h1>
 
-        <nav className="md:flex flex-between hidden w-full max-w-xs mr-16">
+        <nav className="md:flex flex-between hidden w-full max-w-xs mr-44">
         <NavItems />
         </nav>     
         <SignedIn>

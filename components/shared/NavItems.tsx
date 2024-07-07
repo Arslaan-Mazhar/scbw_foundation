@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const pathname = usePathname();
   return (
-      <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
+      <ul className="md:flex-between flex w-full flex-col items-start gap-3 md:flex-row">
         {NAV_LINKS.map((link) => {
           const isActive = pathname === link.href;
           return (

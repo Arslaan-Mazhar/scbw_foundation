@@ -3,8 +3,9 @@
 import { FooterIcons } from "@/public/types";
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
-  { href: `/about`, key: 'About', label: 'About' },
-  { href: '/services', key: 'services', label: 'Services' },
+  { href: `/aboutUs`, key: 'About', label: 'About Us' },
+  { href: '/objectives', key: 'objectives', label: 'Objectives' },
+  { href: '/admissions', key: 'admissions', label: 'Admissions' },
   { href: '/donation', key: 'Donation', label: 'Donation' },
   { href: '/contactUs', key: 'contact_us', label: 'Contact Us' },
 ];
@@ -54,9 +55,7 @@ export const FOOTER_LINKS = [
   {
     title: 'Learn More',
     links: [
-      'Home',
-      'About',
-      'Donation',
+      'About Us',
       'Contact Us',
     ],
   },
