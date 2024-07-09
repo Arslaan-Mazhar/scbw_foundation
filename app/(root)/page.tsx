@@ -7,7 +7,7 @@ import PaymentCard  from "./donation/page";
 export default function Home() {
   return (
     <main>
-      <div className="flex justify-center items-center h-screen rounded-xl ">
+      <div className="flex justify-center items-center h-screen rounded-xl">
       <ImageSlider />
       </div>
       <div>
