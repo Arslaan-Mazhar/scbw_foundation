@@ -4,9 +4,9 @@ import Link from "next/link"
 const Objectives = () => {
     return (
       <>
-      <section className="bg-gray-100 h-1/2 p-10 rounded-xl" >
+      <section className="bg-gray-100 h-1/2 p-10 rounded-xl " >
         <h1 className="text-4xl text-center mb-5 font-bold">Action Plan</h1>
-        <div className="flex flex-col gap-5 md:flex-row items-stretch justify-center ">
+        <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center ">
           <div className="p-3 w-full md:w-1/2  md:h-full border border-gray-500 rounded-lg shadow-2xl  hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
           <Link href="/"  >
             <Image
@@ -18,7 +18,7 @@ const Objectives = () => {
             />
           </Link>
           <h1 className="text-2xl text-center">Established</h1>
-          <p className="text-justify font-serif">Special Campaign for Blind Welfare Foundation established in June 2022. Its main office is situated in GT road Kharian(Gujrat). The main aim of this institution is to work for the betterment of visually impaired people, introduce modern technological education to them, and guide them in their education purposes.</p>
+          <p className="text-justify">Special Campaign for Blind Welfare Foundation established in June 2022. Its main office is situated in GT road Kharian(Gujrat). The main aim of this institution is to work for the betterment of visually impaired people, introduce modern technological education to them, and guide them in their education purposes.</p>
           </div>
           <div className="p-3 w-full md:w-1/2  md:h-full border border-gray-500 rounded-lg shadow-2xl hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
           <Link href="/"  >
@@ -34,15 +34,15 @@ const Objectives = () => {
           <p className="text-justify font-serif">A computer lab has been set up. In which computer courses are conducted time to time. Apart from this, this organization takes into account the needs of the blind individual and provides orientation in different languages and other courses are being conducted.</p>
           </div>
         </div>
-      <div className="flex flex-col gap-1 md:flex-row items-stretch justify-center my-5">
+      <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center my-5">
         <div className="flex-none w-full md:w-1/3 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30" >
           <Link href="/"  >
             <Image
               src="/images/p4.jpg"
               width={800}
-              height={150}
+              height={100}
               alt="About Us"
-              className="rounded-xl h-[27.5rem]"
+              className="rounded-xl h-[21.5rem]"
             />
           </Link>
         </div>

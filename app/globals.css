@@ -72,5 +72,6 @@
     }
     body {
       @apply text-foreground;
+      font-family: Arial, Helvetica, sans-serif;
     }
   }

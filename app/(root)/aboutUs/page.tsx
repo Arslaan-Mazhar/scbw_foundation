@@ -4,15 +4,15 @@ import Link from "next/link";
 const About = () => {
   return (
     <section className="bg-gray-100 h-1/2 p-10 rounded-xl" >
-      <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center">
-        <div className="flex-none w-full md:w-1/2  md:h-36" >
+      <div className="flex flex-col  md:flex-row gap-2 items-stretch justify-center">
+        <div className="h-full md:h-36" >
           <Link href="/"  >
             <Image
               src="/images/about-img.jpg"
               width={800}
-              height={150}
+              height={100}
               alt="About Us"
-              className="rounded-xl h-[21rem]"
+              className="rounded-xl h-[16.5rem]"
             />
           </Link>
         </div>
