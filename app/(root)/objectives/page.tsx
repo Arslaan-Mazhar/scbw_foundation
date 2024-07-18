@@ -35,7 +35,7 @@ const Objectives = () => {
           </div>
         </div>
       <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center my-5 lg:h-[27rem]">
-        <div className="flex-none w-full hidden xl:block xl:w-1/3  hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30" >
+        <div className="flex-none w-full hidden xl:block xl:w-1/3 " >
           <Link href="/"  >
             <Image
               src="/images/p4.jpg"

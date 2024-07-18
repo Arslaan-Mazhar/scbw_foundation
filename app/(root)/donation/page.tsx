@@ -23,7 +23,8 @@ import {
 
  function PaymentCard() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 ">
+    <section className="bg-gray-100 p-10 rounded-xl ">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <h1 className="text-3xl font-bold mb-6">Welcome to the Donation page</h1>
     <Card className="shadow-2xl">
       <CardHeader>
@@ -155,6 +156,7 @@ import {
       </CardFooter>
     </Card>
     </div>
+    </section>
   )
 }
 export default PaymentCard
