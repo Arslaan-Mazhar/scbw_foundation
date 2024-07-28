@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
   { href: `/aboutUs`, key: 'About', label: 'About Us' },
   { href: '/objectives', key: 'objectives', label: 'Objectives' },
-  { href: '/admissions', key: 'admissions', label: 'Admissions' },
+  { href: '/admissionform', key: 'admissions', label: 'Admissions' },
   { href: '/donation', key: 'Donation', label: 'Donation' },
   { href: '/contactUs', key: 'contact_us', label: 'Contact Us' },
 ];

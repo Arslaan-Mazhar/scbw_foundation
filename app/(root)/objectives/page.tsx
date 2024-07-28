@@ -7,7 +7,7 @@ const Objectives = () => {
       <section className="bg-gray-100 p-10 rounded-xl " >
         <h1 className="text-4xl text-center mb-5 font-bold">Action Plan</h1>
         <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center ">
-          <div className="p-3 w-full md:w-1/2  bg-white   border border-gray-500 rounded-lg shadow-2xl  hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+          <div className="p-3 w-full md:w-1/2  bg-white border border-gray-500 rounded-lg shadow-2xl  hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
           <Link href="/"  >
             <Image
               src="/images/p1.jpg"
