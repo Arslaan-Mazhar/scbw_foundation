@@ -28,7 +28,7 @@ const ContactUs = () => {
         </p>
       </div>
       <div className="flex flex-col lg:flex-row gap-7 justify-between items-center mt-6 bg-gray-100 ">
-        <Card className="shadow-2xl  w-[42rem] lg:w-full border-2 border-gray-500  hover:border-gray-900">
+        <Card className="shadow-2xl  w-full lg:w-[42rem] border-2 border-gray-500  hover:border-gray-900">
           <CardHeader>
             <CardTitle className="text-center">Get in Touch</CardTitle>
             <CardDescription className="text-center">

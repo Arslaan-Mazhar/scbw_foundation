@@ -28,9 +28,9 @@ function PaymentCard() {
       <h1 className="text-3xl font-bold mb-6 text-center">
         Membership and Donation page
       </h1>
-      <div className="flex flex-col lg:flex-row justify-center gap-7 items-center bg-gray-100 ">
-        <div>
-          <Card className="shadow-2xl  w-[42rem] lg:w-full border-2 border-gray-500  hover:border-gray-900">
+      <div className="flex flex-col lg:flex-row justify-between gap-5 items-center bg-gray-100 ">
+
+          <Card className="shadow-2xl   lg:w-[42rem]  border-2 border-gray-500  hover:border-gray-900">
             <CardHeader>
               <CardTitle className="text-center">Membership Form</CardTitle>
               <CardDescription className="text-center">
@@ -100,8 +100,7 @@ function PaymentCard() {
               <Button className="w-full">Submit</Button>
             </CardFooter>
           </Card>
-        </div>
-        <div>
+
           <Card className="shadow-2xl border-2 border-gray-500  hover:border-gray-900">
             <CardHeader>
               <CardTitle className="text-center">Payment Method</CardTitle>
@@ -237,7 +236,7 @@ function PaymentCard() {
               <Button className="w-full">Continue</Button>
             </CardFooter>
           </Card>
-        </div>
+
       </div>
     </section>
   );

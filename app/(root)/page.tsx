@@ -27,9 +27,6 @@ export default function Home() {
         <div className="sm:mb-12 md:mb-0">
             <ContactUs />
         </div>
-        <div className="sm:mb-12 md:mb-0">
-            <AdmissionForm />
-        </div>
     </main>
   );
 }
