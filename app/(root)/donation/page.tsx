@@ -21,9 +21,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { countries } from "../../../data/countries";
+import Head from "next/head";
 
 function PaymentCard() {
   return (
+    <>
+      <Head>
+        <title>Donate Us - SCBW Foundation</title>
+        <meta
+          name="description"
+          content="Help us through your donation and become permanent member of SCBW Foundation, our mission, vision, and the impact we're making for the people in need."
+        />
+      </Head>
     <section className="bg-gray-100 p-10 rounded-xl ">
       <h1 className="text-3xl font-bold mb-6 text-center">
         Membership and Donation page
@@ -239,6 +248,7 @@ function PaymentCard() {
 
       </div>
     </section>
+    </>
   );
 }
 export default PaymentCard;

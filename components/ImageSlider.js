@@ -30,12 +30,12 @@ const ImageSlider = () => {
       <SwiperSlide>
         <img src="/images/image3.jpg" alt="Image 3" style={{ width: '50%', height: '100%',  margin:'auto' }} />
       </SwiperSlide>
-      <SwiperSlide>
+      {/* <SwiperSlide>
         <img src="/images/image4.jpg" alt="Image 4" style={{ width: '100%', height: '100%' }} />
       </SwiperSlide>
       <SwiperSlide>
         <img src="/images/image5.jpg" alt="Image 5" style={{ width: '100%', height: '100%' }} />
-      </SwiperSlide>
+      </SwiperSlide> */}
       {/* Add more slides as needed */}
     </Swiper>
   );

@@ -1,9 +1,17 @@
+import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 
 const Objectives = () => {
     return (
       <>
+       <Head>
+        <title>Objectives - SCBW Foundation</title>
+        <meta
+          name="description"
+          content="SCBW Foundation objectives are solely for blinds and our mission, vision, and the impact we're making for the blinds."
+        />
+      </Head>
       <section className="bg-gray-100 p-10 rounded-xl " >
         <h1 className="text-4xl text-center mb-5 font-bold">Action Plan</h1>
         <div className="flex flex-col gap-3 md:flex-row items-stretch justify-center ">

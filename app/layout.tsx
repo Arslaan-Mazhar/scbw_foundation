@@ -11,7 +11,7 @@ const poppins = Poppins({ subsets: ["latin"],
 
 export const metadata: Metadata = {
   title: "SCBW Foundation",
-  description: "Special Campaign for Blinds Welfare Foundation is serving for blind people.",
+  description: "Special Campaign for Blinds Welfare Foundation is serving for blind people.Support the welfare of the visually impaired with SCBW Foundation. Join us in our mission to make a difference.",
   icons: {
        icon: '/logo1.png',
   }

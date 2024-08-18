@@ -1,6 +1,7 @@
 "use client"
 import { Button } from '@/components/ui/button';
 import { Formik, Field, Form } from 'formik';
+import Head from 'next/head';
 import * as Yup from 'yup';
 
 const initialValues = {
@@ -41,6 +42,14 @@ const validationSchema = Yup.object({
 
 const AdmissionForm = () => {
   return (
+    <>
+      <Head>
+        <title>Admission - SCBW Foundation</title>
+        <meta
+          name="description"
+          content="Learn more about admissions in SCBW Foundation, our mission, vision, and the impact we're making for the visually impaired people."
+        />
+      </Head>
     <div className="container mx-auto p-4 min-h-screen">
       <h1 className="text-2xl font-bold mb-4 text-center">Admission Form</h1>
       <Formik
@@ -204,6 +213,7 @@ const AdmissionForm = () => {
             </ul>
           </div>
     </div>
+    </>
   );
 };
 

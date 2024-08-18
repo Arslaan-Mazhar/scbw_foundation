@@ -10,8 +10,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import GoogleMap from '@/components/ui/google-map';
+import Head from "next/head";
 const ContactUs = () => {
   return (
+    <>
+      <Head>
+        <title>Contact Us - SCBW Foundation</title>
+        <meta
+          name="description"
+          content="Reach us  through our mobile Number or email us at SCBW Foundation, our mission, vision, and the impact we're making for the blind people."
+        />
+      </Head>
     <section className="bg-gray-100 p-10 rounded-xl ">
       <h1 className="text-3xl font-bold mb-10 text-center">Contact Us</h1>
       <div className="flex flex-col lg:flex-row justify-between items-center ">
@@ -62,6 +71,7 @@ const ContactUs = () => {
     </div>
       </div>
     </section>
+    </>
   );
 };
 
