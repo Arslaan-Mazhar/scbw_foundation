@@ -19,7 +19,7 @@ const ImageSlider = () => {
       loop={true}
       spaceBetween={50}
       slidesPerView={1}
-      style={{ width: '100%', height: '100%'  }}
+      style={{ width: '1280px', height: '620px'}}
     >
       <SwiperSlide>
         <img src="/images/image1.jpg" alt="Image 1" style={{ width: '100%', height: '100%' }} />
@@ -30,13 +30,15 @@ const ImageSlider = () => {
       <SwiperSlide>
         <img src="/images/image3.jpg" alt="Image 3" style={{ width: '50%', height: '100%',  margin:'auto' }} />
       </SwiperSlide>
-      {/* <SwiperSlide>
-        <img src="/images/image4.jpg" alt="Image 4" style={{ width: '100%', height: '100%' }} />
-      </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/image5.jpg" alt="Image 5" style={{ width: '100%', height: '100%' }} />
-      </SwiperSlide> */}
-      {/* Add more slides as needed */}
+        <img src="/images/image4.jpg" alt="Image 4" style={{ width: '100%', height: '100%'   }} />
+      </SwiperSlide>
+       <SwiperSlide>
+        <img src="/images/image5.jpg" alt="Image 5" style={{ width: '100%', height: '100%'}} />
+      </SwiperSlide> 
+      <SwiperSlide>
+        <img src="/images/image6.jpg" alt="Image 6" style={{ width: '100%', height: '100%' }} />
+      </SwiperSlide> 
     </Swiper>
   );
 };

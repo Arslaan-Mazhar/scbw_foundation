@@ -18,8 +18,8 @@ const Header = () => {
       <meta name="description" content="Support the welfare of the visually impaired with SCBW Foundation. Join us in our mission to make a difference." />
     </Head>
     <header className={`${isHomePage ?  'lg:fixed bg-white' : null}  w-full border-b`}>
-      <div className="flex items-center justify-center ">
-        <Link href="/" className="xl:mx-2">
+      <div className="flex items-center lg:justify-center ">
+        <Link href="/" className="md:mx-2 ">
           <Image 
             src="/logo1.png" width={128} height={38}
             alt="SCBW Foundation logo" 
@@ -27,34 +27,18 @@ const Header = () => {
             className="rounded-lg"
           />
         </Link>
-        <h1 className="font-bold  xl:w-60">Special Campaign for <br /> Blind Welfare Foundation</h1>
+        <h1 className="hidden xl:block font-bold  xl:w-60 lg:mx-2">Special Campaign for <br /> Blind Welfare Foundation</h1>
              <ul className='regular-14 xl:flex gap-2 items-center  mx-auto hidden'>
                 {SOCIALS.links.map((link) => (
-                  <Link href={link.href} key={link.key} className='fill-current hover:bg-gray-300 transition duration-300 ease-in-out'>
+                  <Link href={link.href} key={link.key} className='fill-current hover:bg-gray-200 transition duration-300 ease-in-out'>
                     <Image src={link.icon} alt={link.label} width={24} height={24}  />
                   </Link>
                 ))}
              </ul>
 
-        <nav className="md:flex flex-between hidden w-full max-w-xs lg:mx-44  ">
+        <nav className="md:flex flex-between hidden w-full max-w-xs lg:mx-80  ">
         <NavItems />
         </nav>     
-        <SignedIn>
-       
-        </SignedIn>
-
-        <div className="flex w-32 justify-end gap-3">
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
-          <SignedOut>
-            <Button asChild className="rounded-full pt-3 xl:mr-5 hidden lg:block" size="lg">
-              <Link href="/sign-in">
-                Login
-              </Link>
-            </Button>
-          </SignedOut>        
-        </div>
         <div className="md:hidden">
         <MobileNav />
         </div>
