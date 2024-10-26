@@ -15,18 +15,18 @@ const Header = () => {
       <title>Special Campaign for Blinds Welfare (SCBW) Foundation</title>
       <meta name="description" content="Support the welfare of the visually impaired with SCBW Foundation. Join us in our mission to make a difference." />
     </Head>
-    <header className={`${isHomePage ?  'lg:fixed bg-white' : null}  w-full border-b`}>
-      <div className="flex items-center lg:justify-center ">
-        <Link href="/" className="md:mx-2 ">
+    <header className={` animate-fade-in ${isHomePage ?  'lg:fixed bg-white' : null}  w-full border-b`}>
+      <div className="flex md:items-center justify-center md:h-12">
+        <Link href="/" className=" md:mx-6 ">
           <Image 
             src="/logo1.png" width={128} height={38}
             alt="SCBW Foundation logo" 
             objectFit="cover"
-            className="rounded-lg"
+            className="rounded-lg "
           />
         </Link>
-        <h1 className="hidden xl:block font-bold  xl:w-60 lg:mx-2">Special Campaign for <br /> Blind Welfare Foundation</h1>
-             <ul className='regular-14 xl:flex gap-2 items-center  mx-auto hidden'>
+        <h1 className="hidden xl:block font-bold  lg:w-96 lg:mx-6 animate-pulse">Special Campaign for <br /> Blind Welfare Foundation</h1>
+             <ul className='regular-14  xl:flex w-32 gap-1  items-center mx-auto hidden  '>
                 {SOCIALS.links.map((link) => (
                   <Link href={link.href} key={link.key} className='fill-current hover:bg-gray-200 transition duration-300 ease-in-out'>
                     <Image src={link.icon} alt={link.label} width={24} height={24}  />
@@ -34,10 +34,10 @@ const Header = () => {
                 ))}
              </ul>
 
-        <nav className="md:flex flex-between hidden w-full max-w-xs lg:mx-80  ">
+        <nav className="md:flex justify-between space-x-10 hidden w-full max-w-lg lg:mx-40  ">
         <NavItems />
         </nav>     
-        <div className="md:hidden">
+        <div className="md:hidden m-5">
         <MobileNav />
         </div>
       </div>
