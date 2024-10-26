@@ -197,7 +197,7 @@ const AdmissionForm = () => {
             placeholder="Passport size photo"
           />
           
-          <Button type='submit' className="w-full">
+          <Button type='submit' className="w-40 mx-auto transform hover:scale-105 transition-all duration-300">
             Submit
           </Button>
         </Form>

@@ -16,8 +16,8 @@ const Header = () => {
       <meta name="description" content="Support the welfare of the visually impaired with SCBW Foundation. Join us in our mission to make a difference." />
     </Head>
     <header className={` animate-fade-in ${isHomePage ?  'lg:fixed bg-white' : null}  w-full border-b`}>
-      <div className="flex md:items-center justify-center md:h-12">
-        <Link href="/" className=" md:mx-6 ">
+      <div className="flex md:items-center justify-center md:py-1">
+        <Link href="/" className=" md:mx-6  ">
           <Image 
             src="/logo1.png" width={128} height={38}
             alt="SCBW Foundation logo" 
@@ -37,7 +37,7 @@ const Header = () => {
         <nav className="md:flex justify-between space-x-10 hidden w-full max-w-lg lg:mx-40  ">
         <NavItems />
         </nav>     
-        <div className="md:hidden m-5">
+        <div className="md:hidden m-7">
         <MobileNav />
         </div>
       </div>

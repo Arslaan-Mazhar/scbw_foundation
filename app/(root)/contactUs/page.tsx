@@ -62,7 +62,7 @@ const ContactUs = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="mx-auto p-6">Send Message</Button>
+            <Button className="mx-auto p-6 transform hover:scale-105 transition-all duration-300">Send Message</Button>
           </CardFooter>
         </Card>
         <div className="w-full h-full border-2 border-gray-600 hover:border-gray-950  rounded-lg">

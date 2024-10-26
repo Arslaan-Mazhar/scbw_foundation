@@ -19,7 +19,7 @@ const ImageSlider = () => {
       loop={true}
       spaceBetween={50}
       slidesPerView={1}
-      style={{ width: '1280px', height: '655px'}}
+      style={{ width: '1280px', height: '640px'}}
     >
       <SwiperSlide>
         <img src="/images/image1.jpg" alt="Image 1" style={{ width: '100%', height: '100%' }} />

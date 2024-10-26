@@ -106,7 +106,7 @@ function PaymentCard() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">Submit</Button>
+              <Button className="w-full transform hover:scale-105 transition-all duration-300">Submit</Button>
             </CardFooter>
           </Card>
 
@@ -242,7 +242,7 @@ function PaymentCard() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">Continue</Button>
+              <Button className="w-full transform hover:scale-105 transition-all duration-300">Continue</Button>
             </CardFooter>
           </Card>
 
