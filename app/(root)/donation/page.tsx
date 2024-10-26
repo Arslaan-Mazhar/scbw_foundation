@@ -37,9 +37,9 @@ function PaymentCard() {
       <h1 className="text-3xl font-bold mb-6 text-center">
         Membership and Donation page
       </h1>
-      <div className="flex flex-col lg:flex-row justify-between gap-5 items-center bg-gray-100 ">
+      <div className="flex flex-col xl:flex-row justify-between gap-5 items-center bg-gray-100 ">
 
-          <Card className="shadow-2xl   lg:w-[42rem]  border-2 border-gray-500  hover:border-gray-900">
+          <Card className="shadow-2xl  xl:pt-1 lg:w-[42rem]  border-2 border-gray-500  hover:border-gray-900">
             <CardHeader>
               <CardTitle className="text-center">Membership Form</CardTitle>
               <CardDescription className="text-center">
@@ -77,7 +77,7 @@ function PaymentCard() {
                   </Select>
                 </div>
 
-                <div className="grid gap-2 xl:mb-6">
+                <div className="grid gap-2 ">
                   {/* <Label htmlFor="name">Name</Label> */}
                   <Input id="name" placeholder="Full Name" />
                 </div>
@@ -85,13 +85,17 @@ function PaymentCard() {
                   {/* <Label htmlFor="name">Father Name</Label> */}
                   <Input id="phone" placeholder="Phone No." />
                 </div>
+                <div className="grid gap-2">
+                  {/* <Label htmlFor="name">Father Name</Label> */}
+                  <Input id="email" placeholder="Email Address" />
+                </div>
               {/* </div> */}
               <div className="grid gap-2">
-                <Label htmlFor="city">Address</Label>
-                <Input id="city" placeholder="" />
+                {/* <Label htmlFor="city">Address</Label> */}
+                <Input id="city" placeholder="Address" />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="country">Country</Label>
+                {/* <Label htmlFor="country">Country</Label> */}
                 <select
                   id="country"
                   name="country"
