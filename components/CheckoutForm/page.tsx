@@ -3,8 +3,8 @@ import { useState } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsAndConditions from "./TermsAndConditions";
 import { Button } from "../ui/button";
+import { Currencies } from "@/constants";
 
-const currencies = ["PKR", "USD", "EUR", "GBP"];
 
 const CheckoutForm = () => {
   const [amount, setAmount] = useState<number>(0);
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
             >
-              {currencies.map((cur) => (
+              {Currencies.map((cur) => (
                 <option key={cur} value={cur}>
                   {cur}
                 </option>
