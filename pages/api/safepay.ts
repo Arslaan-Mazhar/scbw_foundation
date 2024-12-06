@@ -29,8 +29,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       source: "hosted",
       tbt,
       tracker: data.tracker.token,
-      cancel_url: "http://localhost:3001/cancel",
-      redirect_url: "http://localhost:3001/success",
+      cancel_url: "https://www.scbwfoundation.org/cancel",
+      redirect_url: "https://www.scbwfoundation.org/success",
     });
 
     res.status(200).json({ checkoutUrl });
