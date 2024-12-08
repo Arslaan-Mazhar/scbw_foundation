@@ -6,7 +6,7 @@ export function middleware(req: any) {
 
   if (host?.startsWith("admin")) {
     // Redirect to admin page if "admin" subdomain
-    url.pathname = "/login";
+    url.pathname = "/admin";
     return NextResponse.rewrite(url);
   }
 
