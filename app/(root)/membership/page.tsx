@@ -21,8 +21,7 @@ import { countries } from "../../../data/countries";
 import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
 import { collection, addDoc } from "firebase/firestore";
 import Head from "next/head";
-import MembershipListing from "@/app/(root)/membership/MembershipListing";
-import { getCurrentUser } from "@/lib/auth";
+
 
 export default function  MembershipForm() {
   const initialFormData = {
@@ -35,7 +34,6 @@ export default function  MembershipForm() {
     country: "",
   };
   const [formData, setFormData] = useState(initialFormData);
-  const [isAdmin, setIsAdmin] = useState(false);
    
      // Mock admin check
   // useEffect(() => {
@@ -179,9 +177,6 @@ export default function  MembershipForm() {
           </Button>
         </CardFooter>
       </Card>
-      <section>
-      {isAdmin && <MembershipListing />}
-      </section>
     </>
   );
 }

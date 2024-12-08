@@ -6,8 +6,6 @@ import Head from 'next/head';
 import * as Yup from 'yup';
 import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
 import { collection, addDoc } from "firebase/firestore";
-import AdmissionListing from './AdmissionListing';
-import { getCurrentUser } from "@/lib/auth";
 
 const initialValues = {
   photo: '',
@@ -46,7 +44,6 @@ const validationSchema = Yup.object({
 });
 
 const AdmissionForm = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
        // Mock admin check
       //  useEffect(() => {
       //   const fetchUserData = async () => {
@@ -234,9 +231,6 @@ const AdmissionForm = () => {
             </ul>
           </div>
     </div>
-    <section>
-    {isAdmin &&  <AdmissionListing />}
-    </section>
     </>
   );
 };
