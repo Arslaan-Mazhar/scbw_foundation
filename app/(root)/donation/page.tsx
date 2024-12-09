@@ -109,10 +109,11 @@ function DonationForm() {
                   You can donate securely online through our payment gateway:
                 </p>
                 <Button
-                   onClick={handleDonateClick}
+                  //  onClick={handleDonateClick}
+                  disabled
                   className="mt-4 inline-block px-4 py-2 text-white rounded shadow transform hover:scale-105 transition-all duration-300"
                 >
-                  Donate Online
+                  Donation Online is under development...
                 </Button>
               </div>
             </div>
