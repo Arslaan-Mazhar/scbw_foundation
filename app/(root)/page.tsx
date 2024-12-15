@@ -63,9 +63,9 @@ export default function Home() {
         <div className="sm:mb-12 md:mb-0">
           <PaymentCard />
         </div>
-        <div>
+        {/* <div>
           <CheckoutForm />
-        </div>
+        </div> */}
         <div className="sm:mb-12 md:mb-0">
           <ContactUs />
         </div>
