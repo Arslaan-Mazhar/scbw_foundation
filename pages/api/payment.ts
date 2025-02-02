@@ -6,7 +6,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const { orderId, amount, currency, customerId } = req.body;
-  const testMode = process.env.TEST_MODE === "true";
+  // const testMode = process.env.TEST_MODE === "true";
+   const testMode = "true";
   // const username = testMode ? "Demo_fY9c" : process.env.ETISALAT_USERNAME;
   // const password = testMode ? "Comtrust@20182018" : process.env.ETISALAT_PASSWORD;
   const apiUrl = testMode
