@@ -7,7 +7,8 @@ import { Currencies } from "@/constants";
 
 
 const CheckoutForm = () => {
-  const [amount, setAmount] = useState<number>(0);
+  // const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<string>("1");
   const [currency, setCurrency] = useState<string>("PKR");
   const [isPrivacyPolicyVisible, setIsPrivacyPolicyVisible] = useState(false);
   const [isTermsVisible, setIsTermsVisible] = useState(false);
@@ -20,7 +21,7 @@ const CheckoutForm = () => {
   const handleCheckout = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/safepay", {
+      const response = await fetch("/api/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,14 +30,17 @@ const CheckoutForm = () => {
       });
 
       const data = await response.json();
-      console.log(data);
-      if (data.checkoutUrl) {
-        window.location.href = data.checkoutUrl;
-      } else {
-        alert("Failed to create checkout session.");
-      }
+      if (!response.ok) throw new Error(data.error || "Payment failed");
+      window.location.href = data.paymentUrl; // Redirect to payment page
+      // console.log(data);
+      // if (data.checkoutUrl) {
+      //   window.location.href = data.checkoutUrl;
+      // } else {
+      //   alert("Failed to create checkout session.");
+      // }
     } catch (error) {
       console.error("Error creating checkout session:", error);
+      alert("Failed to create checkout session.");
     } finally {
       setLoading(false);
     }
@@ -80,7 +84,9 @@ const CheckoutForm = () => {
               placeholder="Enter donation amount"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
               value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
+              // onChange={(e) => setAmount(Number(e.target.value))
+              onChange={(e) => setAmount(e.target.value)
+              }
             />
           </div>
           {/* Checkout Button */}

@@ -13,7 +13,7 @@ const Objectives = () => {
       </Head>
       <div className="bg-gray-50 min-h-screen text-gray-900">
       {/* Header Section */}
-      <header className="bg-primary text-white py-6 rounded-full mx-56">
+      <header className=" hidden md:block bg-primary text-white py-6 rounded-full mx-56">
         <div className="container mx-auto text-center">
           <h1 className="text-3xl font-bold">
             Special Campaign for Blind Welfare Foundation

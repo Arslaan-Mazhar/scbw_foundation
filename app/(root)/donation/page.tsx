@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import CheckoutForm from "@/components/CheckoutForm/page";
 import { Button } from "@/components/ui/button";
+import PaymentForm from "@/components/PaymentForm/page";
 function DonationForm() {
   const [showCheckoutForm, setShowCheckoutForm] = useState(false);
 
@@ -109,11 +110,11 @@ function DonationForm() {
                   You can donate securely online through our payment gateway:
                 </p>
                 <Button
-                  //  onClick={handleDonateClick}
-                  disabled
+                   onClick={handleDonateClick}
+                  // disabled
                   className="mt-4 inline-block px-4 py-2 text-white rounded shadow transform hover:scale-105 transition-all duration-300"
                 >
-                  Donation Online is under development...
+                  Donation Online
                 </Button>
               </div>
             </div>
@@ -125,6 +126,7 @@ function DonationForm() {
           onClick={handleCloseForm}
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
         >
+          {/* <PaymentForm orderId="7210055701315195" amount={"20.00"} customerId="Demo Merchant" /> */}
           <CheckoutForm />
         </div>
       )}
