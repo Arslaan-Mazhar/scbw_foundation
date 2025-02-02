@@ -4,7 +4,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import CheckoutForm from "@/components/CheckoutForm/page";
 import { Button } from "@/components/ui/button";
-import PaymentForm from "@/components/PaymentForm/page";
 function DonationForm() {
   const [showCheckoutForm, setShowCheckoutForm] = useState(false);
 
