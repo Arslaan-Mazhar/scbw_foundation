@@ -14,8 +14,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ? "https://demo-ipg.ctdev.comtrust.ae:2443/"
     : "https://ipg.comtrust.ae:2443/";
   const orderid = "3333333344444";
-  // const callbackUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhook?order_id=${orderid}`;
+  const callbackUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  // const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhook?order_id=${orderid}`;
   const payload = {
     Registration: {
       Customer: "Demo Merchant",
