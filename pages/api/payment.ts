@@ -14,8 +14,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ? "https://demo-ipg.ctdev.comtrust.ae:2443/"
     : "https://ipg.comtrust.ae:2443/";
   const orderid = "3333333344444";
-  const callbackUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  // const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhook?order_id=${orderid}`;
+  // const callbackUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  //  const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhook?order_id=${orderid}`;
+   const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/finalize-payment`;
+
   const payload = {
     Registration: {
       Customer: "Demo Merchant",
@@ -24,16 +26,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       Currency: currency,
       OrderName: "Order #3333333344444",
       TransactionHint: "CPT:Y;VCC:Y;",
-      // ReturnPath:"http://www.localhost:3000/success",
+      // ReturnPath:"https://www.localhost:3000",
       ReturnPath: callbackUrl,
       UserName: "Demo_fY9c",
       Password: "Comtrust@20182018",
       // Customer: customerId,
-      // OrderID: orderId,
-      // OrderName: `Order #${orderId}`,
-      // OrderInfo: `Payment for order ${orderId}`,
-      // Store: "0000",
-      // Terminal: "0000",
+      OrderID: orderid,
+      // OrderName: `Order #${orderid}`,
+      OrderInfo: `Payment for order ${orderid}`,
+      Store: "0000",
+      Terminal: "0000",
       // Username: username,
       // Password: password,
     },
