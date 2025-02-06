@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsAndConditions from "./TermsAndConditions";
 import { Button } from "../ui/button";
@@ -13,7 +13,19 @@ const CheckoutForm = () => {
   const [isPrivacyPolicyVisible, setIsPrivacyPolicyVisible] = useState(false);
   const [isTermsVisible, setIsTermsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [randomNumber, setRandomNumber] = useState("");
+ 
+  useEffect(() => {
+    const generateSecure13DigitNumber = () => {
+      const array = new Uint32Array(2);
+      crypto.getRandomValues(array);
+      return (array[0] % 9000000000000 + 1000000000000).toString();
+    };
 
+    setRandomNumber(generateSecure13DigitNumber());
+  }, []);
+
+  const orderId = randomNumber;
   const togglePrivacyPolicy = () =>
     setIsPrivacyPolicyVisible(!isPrivacyPolicyVisible);
   const toggleTerms = () => setIsTermsVisible(!isTermsVisible);
@@ -26,11 +38,11 @@ const CheckoutForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount, currency }),
+        body: JSON.stringify({ orderId, amount, currency }),
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Payment failed");
+      if (!response.ok) throw new Error(data.error || "Payment failed. For more information, please contact your card issuing bank.");
       window.location.href = data.paymentUrl; // Redirect to payment page
       // console.log(data);
       // if (data.checkoutUrl) {
@@ -39,8 +51,8 @@ const CheckoutForm = () => {
       //   alert("Failed to create checkout session.");
       // }
     } catch (error) {
-      console.error("Error creating checkout session:", error);
-      alert("Failed to create checkout session.");
+      // console.error("Error creating checkout session:", error);
+       alert("Failed to create checkout session. For more information, please contact your card issuing bank.");
     } finally {
       setLoading(false);
     }
@@ -104,7 +116,7 @@ const CheckoutForm = () => {
         </div>
         {/* Privacy Policy and Terms */}
         <div className="mt-6 text-sm text-center text-gray-500">
-          By donating, you agree to our{" "}
+          By donating, you agree to our 
           <button
             onClick={togglePrivacyPolicy}
             className="text-blue-500 hover:underline"
@@ -124,6 +136,9 @@ const CheckoutForm = () => {
           <PrivacyPolicy onClose={togglePrivacyPolicy} />
         )}
         {isTermsVisible && <TermsAndConditions onClose={toggleTerms} />}
+        <div className="flex justify-end">
+        <img src="/UBL-PAY-logo.jpg" alt="UBL PAY Logo" className="w-24 h-auto" />
+        </div>
       </div>
     </section>
   );

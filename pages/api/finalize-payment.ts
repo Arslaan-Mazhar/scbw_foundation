@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   console.log("Finalizing Payment for TransactionID:", TransactionID);
-
+//   const callbackUrl = "https://localhost:3000/success";
   // Define API URL (Test mode or Live mode)
   const testMode = process.env.TEST_MODE === "true";
   const apiUrl = testMode
@@ -25,6 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const payload = {
     Finalization: {
       TransactionID: TransactionID,
+    //   ReturnPath: callbackUrl,
       Customer: "Demo Merchant",
       UserName: "Demo_fY9c",
       Password: "Comtrust@20182018",
@@ -48,7 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Validate response (check if it's empty)
     if (!textResponse.trim()) {
       console.error("Error: Empty response from Etisalat API");
-      return res.status(500).json({ error: "Empty response from payment provider" });
+      return res.status(500).json({ error: "Empty response from payment provider. For more information, please contact your card issuing bank." });
     }
 
     let data;
@@ -56,13 +57,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       data = JSON.parse(textResponse);
     } catch (error) {
       console.error("JSON Parsing Error:", error);
-      return res.status(500).json({ error: "Invalid JSON response from Etisalat API" });
+      return res.status(500).json({ error: "Invalid JSON response from payment provider. For more information, please contact your card issuing bank." });
     }
 
     // Handle Errors from API Response
     if (!data?.Transaction || data.Transaction.ResponseCode !== "0") {
       return res.status(400).json({
-        error: data?.Transaction?.ResponseDescription || "Unknown error",
+        error: data?.Transaction?.ResponseDescription || "Unknown error. For more information, please contact your card issuing bank.",
       });
     }
 
@@ -73,7 +74,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   } catch (error) {
     console.error("Finalization error:", error);
-    return res.status(500).json({ error: "Payment finalization failed" });
+    return res.status(500).json({ error: "Payment finalization failed. For more information, please contact your card issuing bank." });
   }
 }
 
