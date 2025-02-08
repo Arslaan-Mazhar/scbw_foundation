@@ -1,107 +1,143 @@
 "use client";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsAndConditions from "./TermsAndConditions";
 import { Button } from "../ui/button";
-import { Currencies } from "@/constants";
-
+import { Amounts, Currencies } from "@/constants";
+import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
+import { collection, addDoc } from "firebase/firestore";
 
 const CheckoutForm = () => {
-  // const [amount, setAmount] = useState<number>(0);
-  const [amount, setAmount] = useState<string>("1");
-  const [currency, setCurrency] = useState<string>("PKR");
+  const [amount, setAmount] = useState("");
+  const [customAmount, setCustomAmount] = useState("");
+  const [currency, setCurrency] = useState("PKR");
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
   const [isPrivacyPolicyVisible, setIsPrivacyPolicyVisible] = useState(false);
   const [isTermsVisible, setIsTermsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [randomNumber, setRandomNumber] = useState("");
- 
+
   useEffect(() => {
     const generateSecure13DigitNumber = () => {
       const array = new Uint32Array(2);
       crypto.getRandomValues(array);
       return (array[0] % 9000000000000 + 1000000000000).toString();
     };
-
     setRandomNumber(generateSecure13DigitNumber());
   }, []);
 
   const orderId = randomNumber;
-  const togglePrivacyPolicy = () =>
-    setIsPrivacyPolicyVisible(!isPrivacyPolicyVisible);
+  const togglePrivacyPolicy = () => setIsPrivacyPolicyVisible(!isPrivacyPolicyVisible);
   const toggleTerms = () => setIsTermsVisible(!isTermsVisible);
 
   const handleCheckout = async () => {
     setLoading(true);
     try {
+        await addDoc(collection(db, "donationDB"), {
+          fullName,
+          phoneNumber,
+          email,
+          address,
+          amount,
+          currency,
+          orderId,
+          createdAt: new Date(), // Store submission timestamp
+        });
+        // alert("Membership submitted successfully!");
+
+      // Proceed to API call for payment
+      const finalAmount = amount === "other" ? customAmount : amount;
       const response = await fetch("/api/payment", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ orderId, amount, currency }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderId, amount: finalAmount, currency }),
       });
-
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Payment failed. For more information, please contact your card issuing bank.");
-      window.location.href = data.paymentUrl; // Redirect to payment page
-      // console.log(data);
-      // if (data.checkoutUrl) {
-      //   window.location.href = data.checkoutUrl;
-      // } else {
-      //   alert("Failed to create checkout session.");
-      // }
+      if (!response.ok) throw new Error(data.error || "Payment failed.");
+      window.location.href = data.paymentUrl;
     } catch (error) {
-      // console.error("Error creating checkout session:", error);
-       alert("Failed to create checkout session. For more information, please contact your card issuing bank.");
+      alert("Failed to create checkout session.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="bg-gradient-to-b from-blue-50 to-white  flex items-center justify-center rounded-xl">
+    <section className="bg-gradient-to-b from-blue-50 to-white flex items-center justify-center rounded-xl">
       <div className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg">
-        <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">
-          Donate to Us
-        </h1>
-        <p className="text-center text-gray-600 mb-6">
+        <h1 className="text-4xl font-bold text-center text-blue-600">Donate to Us</h1>
+        <p className="text-center text-gray-600 my-2">
           Your donation helps us support the <br />
           <strong>Blind Welfare Foundation</strong>.
         </p>
-        <div className="space-y-6">
-          {/* Currency Selector */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Select Currency:
-            </label>
-            <select
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
-            >
-              {Currencies.map((cur) => (
-                <option key={cur} value={cur}>
-                  {cur}
-                </option>
-              ))}
-            </select>
-          </div>
-          {/* Amount Input */}
-          <div>
-            <label className="block text-gray-700 font-semibold mb-2">
-              Enter Amount:
-            </label>
+        <div className="space-y-2">
+          <select
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
+          >
+            {Currencies.map((cur) => (
+              <option key={cur} value={cur}>{cur}</option>
+            ))}
+          </select>
+
+          <select
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          >
+            {Amounts.map((amt) => (
+              <option key={amt} value={amt}>{amt}</option>
+            ))}
+            <option value="other">Other Amount</option>
+          </select>
+
+          {amount === "other" && (
             <input
               type="number"
-              placeholder="Enter donation amount"
+              placeholder="Enter custom amount"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
-              value={amount}
-              // onChange={(e) => setAmount(Number(e.target.value))
-              onChange={(e) => setAmount(e.target.value)
-              }
+              value={customAmount}
+              onChange={(e) => setCustomAmount(e.target.value)}
             />
-          </div>
-          {/* Checkout Button */}
+          )}
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder="Phone Number"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder="Address"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+
           <div className="flex justify-center">
             <Button
               onClick={handleCheckout}
@@ -114,30 +150,26 @@ const CheckoutForm = () => {
             </Button>
           </div>
         </div>
-        {/* Privacy Policy and Terms */}
-        <div className="mt-6 text-sm text-center text-gray-500">
-          By donating, you agree to our 
-          <button
-            onClick={togglePrivacyPolicy}
-            className="text-blue-500 hover:underline"
-          >
+
+        <div className="mt-2 text-sm text-center text-gray-500">
+          By donating, you agree to our {" "}
+          <button onClick={togglePrivacyPolicy} className="text-blue-500 hover:underline">
             Privacy Policy
-          </button>{" "}
-          and{" "}
-          <button
-            onClick={toggleTerms}
-            className="text-blue-500 hover:underline"
-          >
+          </button>{" "}and {" "}
+          <button onClick={toggleTerms} className="text-blue-500 hover:underline">
             Terms and Conditions
           </button>.
         </div>
-        {/* Modals */}
-        {isPrivacyPolicyVisible && (
-          <PrivacyPolicy onClose={togglePrivacyPolicy} />
-        )}
+
+        {isPrivacyPolicyVisible && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
         {isTermsVisible && <TermsAndConditions onClose={toggleTerms} />}
         <div className="flex justify-end">
-        <img src="/UBL-PAY-logo.jpg" alt="UBL PAY Logo" className="w-24 h-auto" />
+              <Image
+                src="/UBL-PAY-logo.jpg"
+                width={150}
+                height={100}
+                alt="UBL PAY Logo"
+              />
         </div>
       </div>
     </section>
