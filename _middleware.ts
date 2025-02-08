@@ -6,7 +6,7 @@ export function middleware(req: NextRequest) {
   const host = req.headers.get("host") || "";
 
   // If the request is coming from admin.localhost:3000, redirect to /login on the same subdomain
-  if (host.startsWith("http://admin.scbwfoundation.org")) {
+  if (host.startsWith("https://admin.scbwfoundation.org")) {
     url.pathname = "/login"; // Ensure redirection happens to /login
     return NextResponse.redirect(url);
   }
