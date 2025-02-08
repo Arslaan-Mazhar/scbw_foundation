@@ -19,7 +19,7 @@ interface MembershipDataType {
   amount: number;
   city?: string;
   country: string;
-  createdAt: Date;
+  createdAt: string;
   email?: string;
   phone: number;
   type: string;
@@ -48,6 +48,7 @@ interface AdmissionDataType {
   address: string;
   city: string;
   district: string;
+  createdAt: string;
 }
 
 export const fetchDonationData = async (): Promise<DonationDataType[]> => {
