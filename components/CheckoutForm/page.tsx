@@ -9,7 +9,7 @@ import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
 import { collection, addDoc } from "firebase/firestore";
 
 const CheckoutForm = () => {
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState("10");
   const [customAmount, setCustomAmount] = useState("");
   const [currency, setCurrency] = useState("PKR");
   const [fullName, setFullName] = useState("");
