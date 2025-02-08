@@ -2,6 +2,17 @@
 import { db } from "../lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
+interface DonationDataType {
+  id: string;
+  fullName: string;
+  amount: string;
+  currency: string;
+  email: string;
+  phoneNumber: string;
+  createdAt: string;
+  address: string;
+}
+
 interface MembershipDataType {
   id: string;
   name: string;
@@ -38,6 +49,15 @@ interface AdmissionDataType {
   city: string;
   district: string;
 }
+
+export const fetchDonationData = async (): Promise<DonationDataType[]> => {
+  const querySnapshot = await getDocs(collection(db, "donationDB"));
+  const data = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as DonationDataType[];
+  return data;
+};
 
 export const fetchData = async (): Promise<MembershipDataType[]> => {
   const querySnapshot = await getDocs(collection(db, "membershipDB"));

@@ -1,14 +1,20 @@
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export function middleware(req: any) {
+export function middleware(req: NextRequest) {
   const url = req.nextUrl.clone();
-  const host = req.headers.get("host"); // Get the host (e.g., "admin.scbwfoundation.com")
+  const host = req.headers.get("host") || "";
 
-  if (host?.startsWith("admin")) {
-    // Redirect to admin page if "admin" subdomain
-    url.pathname = "www.scbwfoundation.org/login";
-    return NextResponse.rewrite(url);
+  // If the request is coming from admin.localhost:3000, redirect to /login on the same subdomain
+  if (host.startsWith("http://admin.scbwfoundation.org")) {
+    url.pathname = "/login"; // Ensure redirection happens to /login
+    return NextResponse.redirect(url);
   }
 
-  return NextResponse.next(); // Continue with the default behavior
+  return NextResponse.next(); // Continue normally for other routes
 }
+
+export const config = {
+  matcher: ["/admin/:path*"], // Apply middleware to all admin routes
+};
+

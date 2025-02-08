@@ -61,8 +61,8 @@ const MembershipListing = () => {
               <tr
                 key={item.id}
                 className={`${
-                  index % 2 === 0 ? "bg-white" : "bg-gray-100"
-                } hover:bg-blue-50`}
+                   index % 2 === 0 ? "bg-white" : "bg-blue-100"
+                  } hover:bg-blue-300 transition-all`}
               >
                 <td className="py-3 px-4 border-b border-gray-300">{item.name}</td>
                 <td className="py-3 px-4 border-b border-gray-300">{item.type}</td>
