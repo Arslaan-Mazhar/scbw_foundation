@@ -1,0 +1,23 @@
+/* Example Tailwind CSS classes */
+.listing {
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .listing:hover {
+    border-color: #4a5568;
+  }
+  
+  .listingHeader {
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #edf2f7;
+  }
+  
+  .listingContent {
+    padding: 1rem;
+    background-color: #f7fafc;
+    border-top: 1px solid #e2e8f0;
+  }
+  

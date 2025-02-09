@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { fetchDonationData } from "@/hooks/fetchData";
 import { Trash2 } from "lucide-react"; // Importing delete icon
-
+import styles from "./admin.module.css";
 interface DonationDataType {
   id: string;
   fullName: string;
@@ -18,7 +18,7 @@ interface DonationDataType {
 const DonationListing = () => {
   const [data, setData] = useState<DonationDataType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
+  const [isOpen, setIsOpen] = useState(false); // Toggle visibility state
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
@@ -28,13 +28,13 @@ const DonationListing = () => {
           ...item,
           createdAt: item.createdAt?.seconds
             ? new Date(item.createdAt.seconds * 1000).toLocaleString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: true,
-              })
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            })
             : "N/A",
         }));
         setData(formattedData);
@@ -57,9 +57,16 @@ const DonationListing = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Donor's List</h1>
-      {loading ? (
+    <div className={styles.listing}>
+      {/* Clickable header to toggle visibility */}
+      <div
+        className={styles.listingHeader}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Donor's List</h1></div>
+        {isOpen && (
+        <>
+        {loading ? (
         <p className="text-2xl font-bold text-center text-gray-600">Loading...</p>
       ) : (
         <div className="overflow-x-auto">
@@ -82,9 +89,8 @@ const DonationListing = () => {
               {data.map((item, index) => (
                 <tr
                   key={item.id}
-                  className={`${
-                    index % 2 === 0 ? "bg-white" : "bg-blue-100"
-                  } hover:bg-blue-300 transition-all`}
+                  className={`${index % 2 === 0 ? "bg-white" : "bg-blue-100"
+                    } hover:bg-blue-300 transition-all`}
                 >
                   <td className="py-3 px-4 border-b border-gray-300">{index + 1}</td>
                   <td className="py-3 px-4 border-b border-gray-300">{item.fullName}</td>
@@ -110,6 +116,8 @@ const DonationListing = () => {
             </tbody>
           </table>
         </div>
+      )}
+       </>
       )}
     </div>
   );
