@@ -8,27 +8,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Extract TransactionID from the request body
   console.log(req.body);
   const { TransactionID } = req.body;
-
+  // const {TransactionID} = Transaction;
+  // console.log("ID>>>>>" + TransactionID);
   if (!TransactionID) {
     return res.status(400).json({ error: "Transaction ID is required", receivedBody: req.body });
   }
 
   console.log("Finalizing Payment for TransactionID:", TransactionID);
+  const apiUrl:any = process.env.SITE_URL;
+  const username = process.env.MY_USERNAME;
+  const password = process.env.PASSWORD;
+  const customerId= "SCBW FOUNDATION";
 //   const callbackUrl = "https://localhost:3000/success";
   // Define API URL (Test mode or Live mode)
-  const testMode = process.env.TEST_MODE === "true";
-  const apiUrl = testMode
-    ? "https://demo-ipg.ctdev.comtrust.ae:2443/"
-    : "https://ipg.comtrust.ae:2443/";
+  // const testMode = process.env.TEST_MODE === "true";
+  // const apiUrl = testMode
+  //   ? "https://demo-ipg.ctdev.comtrust.ae:2443/"
+  //   : "https://ipg.comtrust.ae:2443/";
 
   // Create Finalization Payload
   const payload = {
     Finalization: {
       TransactionID: TransactionID,
     //   ReturnPath: callbackUrl,
-      Customer: "Demo Merchant",
-      UserName: "Demo_fY9c",
-      Password: "Comtrust@20182018",
+      Customer: customerId,
+      UserName: username,
+      Password: password,
     },
   };
 

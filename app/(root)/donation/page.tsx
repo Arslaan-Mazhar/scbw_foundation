@@ -40,44 +40,8 @@ function DonationForm() {
           </div>
         </header>
 
-        {/* How You Can Help */}
-        <section className="py-4 bg-white">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold text-center mb-8">
-              How You Can Help
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              {[
-                {
-                  title: "Education & Training",
-                  description:
-                    "Support education and skills development programs for the visually impaired.",
-                },
-                {
-                  title: "Healthcare Services",
-                  description:
-                    "Provide medical assistance and equipment for accessible healthcare.",
-                },
-                {
-                  title: "Community Integration",
-                  description:
-                    "Promote inclusive community programs and events.",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-50 p-6 shadow-md rounded-lg"
-                >
-                  <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-                  <p className="text-gray-700">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Donation Methods */}
-        <section className="py-4 bg-white">
+             {/* Donation Methods */}
+             <section className="py-4 bg-white">
           <div className="container mx-auto">
             <h2 className="text-2xl font-bold text-center mb-8">
               Donation Methods
@@ -111,11 +75,47 @@ function DonationForm() {
                 <Button
                    onClick={handleDonateClick}
                   // disabled
-                  className="mt-4 inline-block px-4 py-2 text-white rounded shadow transform hover:scale-105 transition-all duration-300"
+                  className="mt-4 inline-block bold px-4 py-2 text-white rounded shadow transform hover:scale-105 transition-all duration-300"
                 >
-                  Donation Online
+                  Donate Online
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How You Can Help */}
+        <section className="py-4 bg-white">
+          <div className="container mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8">
+              How You Can Help
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              {[
+                {
+                  title: "Education & Training",
+                  description:
+                    "Support education and skills development programs for the visually impaired.",
+                },
+                {
+                  title: "Healthcare Services",
+                  description:
+                    "Provide medical assistance and equipment for accessible healthcare.",
+                },
+                {
+                  title: "Community Integration",
+                  description:
+                    "Promote inclusive community programs and events.",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 p-6 shadow-md rounded-lg"
+                >
+                  <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                  <p className="text-gray-700">{item.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
