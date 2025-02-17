@@ -75,7 +75,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Success: Return Transaction Details
     return res.json({
       message: "Payment finalized successfully",
-      transactionDetails: data.Transaction,
+      // transactionDetails: data.Transaction,
     });
   } catch (error) {
     console.error("Finalization error:", error);
