@@ -73,10 +73,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // Success: Return Transaction Details
-    return res.json({
-      message: "Payment finalized successfully",
-      // transactionDetails: data.Transaction,
-    });
+    // return res.json({
+    //   message: "Payment finalized successfully",
+    //   // transactionDetails: data.Transaction,
+    // });
+    return res.redirect("/payment-success");
   } catch (error) {
     console.error("Finalization error:", error);
     return res.status(500).json({ error: "Payment finalization failed. For more information, please contact your card issuing bank." });
