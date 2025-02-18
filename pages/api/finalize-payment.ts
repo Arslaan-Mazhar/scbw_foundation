@@ -72,12 +72,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // Success: Return Transaction Details
-    // return res.json({
-    //   message: "Payment finalized successfully",
-    //   // transactionDetails: data.Transaction,
-    // });
+    return res.json({
+      message: "********** Payment finalized successfully **********",
+      // transactionDetails: data.Transaction,
+    });
     // return res.redirect("/payment-success");
-    return res.status(200).json({ redirectUrl: "/payment-success" });
+    // return res.status(200).json({ redirectUrl: "/payment-success" });
 
   } catch (error) {
     console.error("Finalization error:", error);
