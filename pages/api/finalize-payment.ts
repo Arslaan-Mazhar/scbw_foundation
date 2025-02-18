@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
+import SuccessPage from "../payment-success/page";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
@@ -77,7 +77,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //   message: "Payment finalized successfully",
     //   // transactionDetails: data.Transaction,
     // });
-    return res.redirect("/payment-success");
+    return res.redirect("../payment-success");
   } catch (error) {
     console.error("Finalization error:", error);
     return res.status(500).json({ error: "Payment finalization failed. For more information, please contact your card issuing bank." });
