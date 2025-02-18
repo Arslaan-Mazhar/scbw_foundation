@@ -37,17 +37,17 @@ const CheckoutForm = () => {
   const handleCheckout = async () => {
     setLoading(true);
     try {
-        await addDoc(collection(db, "donationDB"), {
-          fullName,
-          phoneNumber,
-          email,
-          address,
-          amount,
-          currency,
-          orderId,
-          createdAt: new Date(), // Store submission timestamp
-        });
-        // alert("Membership submitted successfully!");
+      await addDoc(collection(db, "donationDB"), {
+        fullName,
+        phoneNumber,
+        email,
+        address,
+        amount,
+        currency,
+        orderId,
+        createdAt: new Date(), // Store submission timestamp
+      });
+      // alert("Membership submitted successfully!");
 
       // Proceed to API call for payment
       const finalAmount = amount === "other" ? customAmount : amount;
@@ -68,7 +68,7 @@ const CheckoutForm = () => {
 
   return (
     <section className="bg-gradient-to-b from-blue-50 to-white flex items-center justify-center rounded-xl">
-      <div className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg">
+      <div className="w-full max-w-md p-8 bg-white shadow-xl rounded-xl">
         <h1 className="text-4xl font-bold text-center text-blue-600">Donate to Us</h1>
         <p className="text-center text-gray-600 my-2">
           Your donation helps us support the <br />
@@ -141,9 +141,8 @@ const CheckoutForm = () => {
           <div className="flex justify-center">
             <Button
               onClick={handleCheckout}
-              className={`w-full md:w-auto px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-md shadow hover:bg-blue-700 transform hover:scale-105 transition-all ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`w-full md:w-auto px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-md shadow hover:bg-blue-700 transform hover:scale-105 transition-all ${loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               disabled={loading}
             >
               {loading ? "Processing..." : "Proceed to Checkout"}
@@ -163,14 +162,17 @@ const CheckoutForm = () => {
 
         {isPrivacyPolicyVisible && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
         {isTermsVisible && <TermsAndConditions onClose={toggleTerms} />}
-        <div className="flex  justify-end">
-              <Image
-                src="/UBL-PAY-logo.jpg"
-                width={150}
-                height={100}
-                alt="UBL PAY Logo"
-              />
-             <b><i><span>UBL Pay Checkout Pay Via Visa & MasterCard</span></i></b>
+        <div className="flex flex-col items-end justify-center space-y-2">
+          <Image
+            src="/UBL-PAY-logo.jpg"
+            width={150}
+            height={100}
+            alt="UBL PAY Logo"
+            className="rounded-lg shadow-lg"
+          />
+          <span className=" text-xs text-gray-700 font-bold">
+            UBL Pay Checkout Pay Via Visa & MasterCard
+          </span>
         </div>
       </div>
     </section>
