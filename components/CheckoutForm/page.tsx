@@ -163,13 +163,14 @@ const CheckoutForm = () => {
 
         {isPrivacyPolicyVisible && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
         {isTermsVisible && <TermsAndConditions onClose={toggleTerms} />}
-        <div className="flex justify-end">
+        <div className="flex  justify-end">
               <Image
                 src="/UBL-PAY-logo.jpg"
                 width={150}
                 height={100}
                 alt="UBL PAY Logo"
               />
+             <b><i><span>UBL Pay Checkout Pay Via Visa & MasterCard</span></i></b>
         </div>
       </div>
     </section>
