@@ -73,8 +73,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Success: Return Transaction Details
     return res.json({
-      message: "********** Payment Finalized Successfully.Thank you for your support to SCBW Foundation. **********",
-      // transactionDetails: data.Transaction,
+      message: "*** Payment Finalized Successfully.Thank you for your support to SCBW Foundation.***",
+      transactionAmount: data.Transaction.Amount.Value,
+      orderID: data.Transaction.orderID,
     });
     // return res.redirect("/payment-success");
     // return res.status(200).json({ redirectUrl: "/payment-success" });
