@@ -5,7 +5,7 @@ import PaymentCard from "./donation/page";
 import ContactUs from "./contactUs/page";
 import Head from "next/head";
 import MembershipForm from "./membership/page";
-import CheckoutForm from "@/components/CheckoutForm/page";
+import CheckoutForm from "@/app/(root)/checkoutForm/page";
 import AdminUpload from "./files/FileUpload";
 
 export default function Home() {

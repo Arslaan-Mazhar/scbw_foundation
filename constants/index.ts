@@ -28,7 +28,7 @@ export const Currencies = [  "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "A
   "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VES", "VND", "VUV", "WST", "XAF", 
   "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWL"];
 
-  export const Amounts = ["10", "50", "100", "500", "1000", "5,000", "10,000", "100,000"];  
+  export const Amounts = ["1000", "10000", "50000", "100000", "1000000"];  
 
 // CAMP SECTION
 export const PEOPLE_URL = [

@@ -5,8 +5,8 @@ import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
 import { FOOTER_CONTACT_INFO, NAV_LINKS, SOCIALS } from "../../constants";
-import PrivacyPolicy from "../CheckoutForm/PrivacyPolicy";
-import TermsAndConditions from "../CheckoutForm/TermsAndConditions";
+import PrivacyPolicy from "../../app/(root)/checkoutForm/PrivacyPolicy";
+import TermsAndConditions from "../../app/(root)/checkoutForm/TermsAndConditions";
 
 const Footer = () => {
   const pathname = usePathname();
