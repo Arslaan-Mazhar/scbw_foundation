@@ -11,7 +11,7 @@ import { collection, addDoc } from "firebase/firestore";
 const CheckoutForm = () => {
   const [amount, setAmount] = useState("10");
   const [customAmount, setCustomAmount] = useState("");
-  const [currency, setCurrency] = useState("PKR");
+  // const [currency, setCurrency] = useState("PKR");
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -43,7 +43,7 @@ const CheckoutForm = () => {
         email,
         address,
         amount,
-        currency,
+        currency: "PKR",
         orderId,
         createdAt: new Date(), // Store submission timestamp
       });
@@ -54,7 +54,7 @@ const CheckoutForm = () => {
       const response = await fetch("/api/payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ orderId, amount: finalAmount, currency }),
+        body: JSON.stringify({ orderId, amount: finalAmount, currency: "PKR" }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Payment failed.");
@@ -66,6 +66,12 @@ const CheckoutForm = () => {
     }
   };
 
+  const handleNoteButtonClick = () => {
+    alert(
+      "When selecting the donation amount, it will be in PKR. However, if you are donating from any other country, your payment will be converted to the equivalent amount in PKR based on the current exchange rates through your payment method (e.g., 3D Secure Master Card/ Visa Card)."
+    );
+  };
+
   return (
     <section className="bg-gradient-to-b from-blue-50 to-white flex items-center justify-center rounded-xl">
       <div className="w-full max-w-md p-8 bg-white shadow-xl rounded-xl">
@@ -75,7 +81,7 @@ const CheckoutForm = () => {
           <strong>Blind Welfare Foundation</strong>.
         </p>
         <div className="space-y-2">
-          <select
+          {/* <select
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
@@ -83,7 +89,7 @@ const CheckoutForm = () => {
             {Currencies.map((cur) => (
               <option key={cur} value={cur}>{cur}</option>
             ))}
-          </select>
+          </select> */}
 
           <select
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -105,6 +111,21 @@ const CheckoutForm = () => {
               onChange={(e) => setCustomAmount(e.target.value)}
             />
           )}
+
+          <div className="flex items-center space-x-2">
+            <input
+              type="text"
+              value="PKR"
+              readOnly
+              className="flex-1 px-4 py-2 bg-gray-200 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <Button
+              onClick={handleNoteButtonClick}
+              className="px-3 py-2 text-sm font-medium text-white bg-gray-500 rounded-md shadow hover:bg-gray-600 transition-all"
+            >
+              Note
+            </Button>
+          </div>
 
           <input
             type="text"
