@@ -4,7 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 const rateLimit = new Map(); // Store IPs and request timestamps
 const BLOCKED_IPS = new Set(); // Set of permanently blocked IPs
-const MAX_REQUESTS = 5; // Allowed attempts before blocking
+const MAX_REQUESTS = 10; // Allowed attempts before blocking
 const TIME_WINDOW = 60 * 1000; // Time window (1 minute)
 
 async function blockIP(ip: string) {
