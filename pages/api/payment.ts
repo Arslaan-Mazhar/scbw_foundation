@@ -1,4 +1,18 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
+import { getDoc, doc } from "firebase/firestore";
+
+async function isBlockedIP(ip: string): Promise<boolean> {
+  try {
+    const docRef = doc(db, "blocked_ips", ip); // Reference to the document
+    const docSnap = await getDoc(docRef); // Fetch the document
+
+    return docSnap.exists(); // Returns true if the document exists
+  } catch (error) {
+    console.error("Error checking blocked IP:", error);
+    return false;
+  }
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
@@ -55,7 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   };
   console.log(payload);
-
+  if(!isBlockedIP){
   try {
     const response = await fetch(apiUrl, {
       method: "POST",
@@ -94,5 +108,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.error("Payment processing error:", error);
     return res.status(500).json({ error: "Payment processing failed. For more information, please contact your card issuing bank." });
   }
+}
 }
 
