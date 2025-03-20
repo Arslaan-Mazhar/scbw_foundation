@@ -54,7 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   };
   console.log(payload);
-  console.log(isBlockedIP);
+  console.log(isBlockedIP("74.34.43.55"));
   // if (!isBlockedIP) {
     try {
       const response = await fetch(apiUrl, {
