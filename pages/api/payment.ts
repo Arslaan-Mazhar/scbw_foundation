@@ -19,7 +19,6 @@ async function isBlockedIP(ip: string): Promise<boolean> {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
@@ -33,19 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const transactionHint = "CPT:Y;VCC:Y;";
   const callbackUrl = process.env.CALLBACK_URL;
   const paymentAmount = finalAmount ? finalAmount : amount;
-  // const testMode = process.env.TEST_MODE === "true";
-  //  const testMode = "true";
-  // const username = testMode ? "Demo_fY9c" : process.env.ETISALAT_USERNAME;
-  // const password = testMode ? "Comtrust@20182018" : process.env.ETISALAT_PASSWORD;
-  // const apiUrl = testMode
-  //   ? "https://demo-ipg.ctdev.comtrust.ae:2443/"
-  //   : "https://ipg.comtrust.ae:2443/";
-
-  // const orderId = "3333333344444";
-  // const callbackUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  //  const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhook?order_id=${orderId}`;
-  //  const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/finalize-payment`;
-  // const callbackUrl = "https://www.scbwfoundation.org/api/finalize-payment";
 
 
   const payload = {
@@ -65,12 +51,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       OrderID: orderId,
       OrderName: `Order #${orderId}`,
       OrderInfo: `Payment for order ${orderId}`,
-      // Store: "0000",
-      // Terminal: "0000",
-      // ReturnPath:"https://www.localhost:3000",
-      // OrderName: "Order #3333333344444",
-      // Username: username,
-      // Password: password,
     },
   };
   console.log(payload);
