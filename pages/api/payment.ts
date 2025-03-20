@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
 import { getDoc, doc } from "firebase/firestore";
-import { BLOCKED_IPS } from "@/_middleware"; // Import blocked IPs
+// import { BLOCKED_IPS } from "@/_middleware"; // Import blocked IPs
 
 const allowedOrigins = ["https://scbwfoundation.org"]; // Allowed domains
 
@@ -54,7 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   };
   console.log(payload);
-  console.log(isBlockedIP("74.34.43.55"));
+  // console.log(isBlockedIP("74.34.43.55"));
   // if (!isBlockedIP) {
     try {
       const response = await fetch(apiUrl, {
