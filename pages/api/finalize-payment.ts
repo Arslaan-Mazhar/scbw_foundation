@@ -19,12 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const username = process.env.MY_USERNAME;
   const password = process.env.PASSWORD;
   const customerId= "SCBW FOUNDATION";
-//   const callbackUrl = "https://localhost:3000/success";
-  // Define API URL (Test mode or Live mode)
-  // const testMode = process.env.TEST_MODE === "true";
-  // const apiUrl = testMode
-  //   ? "https://demo-ipg.ctdev.comtrust.ae:2443/"
-  //   : "https://ipg.comtrust.ae:2443/";
 
   // Create Finalization Payload
   const payload = {

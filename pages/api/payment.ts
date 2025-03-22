@@ -3,19 +3,19 @@ import { db } from "@/lib/firebase"; // Import Firebase Firestore instance
 import { getDoc, doc } from "firebase/firestore";
 // import { BLOCKED_IPS } from "@/_middleware"; // Import blocked IPs
 
-const allowedOrigins = ["https://scbwfoundation.org"]; // Allowed domains
+// const allowedOrigins = ["https://scbwfoundation.org"]; // Allowed domains
 
-async function isBlockedIP(ip: string): Promise<boolean> {
-  try {
-    const docRef = doc(db, "blocked_ips", ip); // Reference to the document
-    const docSnap = await getDoc(docRef); // Fetch the document
+// async function isBlockedIP(ip: string): Promise<boolean> {
+//   try {
+//     const docRef = doc(db, "blocked_ips", ip); // Reference to the document
+//     const docSnap = await getDoc(docRef); // Fetch the document
 
-    return docSnap.exists(); // Returns true if the document exists
-  } catch (error) {
-    console.error("Error checking blocked IP:", error);
-    return false;
-  }
-}
+//     return docSnap.exists(); // Returns true if the document exists
+//   } catch (error) {
+//     console.error("Error checking blocked IP:", error);
+//     return false;
+//   }
+// }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
@@ -53,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       OrderInfo: `Payment for order ${orderId}`,
     },
   };
-  console.log(payload);
+  // console.log(payload);
   // console.log(isBlockedIP("74.34.43.55"));
   // if (!isBlockedIP) {
     try {
