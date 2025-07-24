@@ -168,7 +168,7 @@ function DonationForm() {
   const router = useRouter();
 
   const handleDonateClick = () => {
-    router.push("/checkoutForm"); // Navigate to the CheckoutForm page
+    router.push("/safePayCheckoutForm"); // Navigate to the CheckoutForm page
   };
 
   return (

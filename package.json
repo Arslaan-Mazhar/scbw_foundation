@@ -16,6 +16,7 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.1.0",
     "@sfpy/node-core": "^0.2.2",
+    "@sfpy/node-sdk": "^3.0.2",
     "@shadcn/ui": "^0.0.4",
     "@uploadthing/react": "^6.5.4",
     "axios": "^1.7.9",
