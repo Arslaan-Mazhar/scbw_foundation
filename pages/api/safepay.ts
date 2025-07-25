@@ -45,7 +45,7 @@ import Safepay from "@sfpy/node-core";
 
 const safepay = new Safepay(
   process.env.SAFEPAY_SECRET_KEY as string,
-  { authType: "secret", host: "https://sandbox.api.getsafepay.com" }
+  { authType: "secret", host: "https://api.getsafepay.com/" }
 );
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -71,7 +71,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Create checkout URL
     const checkoutUrl = await safepay.checkout.createCheckoutUrl({
-      env: "sandbox",
+      env: "production",
       source: "hosted",
       tbt: passport.data,
       tracker: session.data.tracker.token,
