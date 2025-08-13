@@ -8,13 +8,13 @@ export const NAV_LINKS = [
   { href: '/admissionform', key: 'admissions', label: 'Admissions' },
   { href: '/membership', key: 'membership', label: 'Membership' },
   { href: '/donation', key: 'Donation', label: 'Donation' },
-  { href: '/contactUs', key: 'contact_us', label: 'Contact Us' },
+  // { href: '/contactUs', key: 'contact_us', label: 'Contact Us' },
   // { href: '/files', key: 'files', label: 'Files' },
 ];
 
-export const Currencies = [  "AED", "EUR", "GBP", "PKR", "SAR", "USD"];
+export const Currencies = [  "AED", "CAD", "EUR", "GBP", "PKR", "SAR", "USD"];
 
-  export const Amounts = ["1000", "10000", "50000", "100000", "1000000"];  
+  export const Amounts = ["10", "50", "100", "500", "1000", "10000"];  
 
 // CAMP SECTION
 export const PEOPLE_URL = [

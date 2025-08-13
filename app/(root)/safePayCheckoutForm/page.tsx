@@ -94,7 +94,7 @@ const CheckoutForm = () => {
             onChange={(e) => setAmount(e.target.value)}
           >
             {Amounts.map((amt) => (
-              <option key={amt} value={amt}>{`Rs ${amt}`}</option>
+              <option key={amt} value={amt}>{amt}</option>
             ))}
             <option value="other">Other Amount</option>
           </select>
@@ -102,7 +102,7 @@ const CheckoutForm = () => {
           {amount === "other" && (
             <input
               type="number"
-              placeholder="Enter custom amount in PKR"
+              placeholder="Enter amount"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
               value={customAmount}
               onChange={(e) => setCustomAmount(e.target.value)}

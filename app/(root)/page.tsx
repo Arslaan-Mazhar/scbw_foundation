@@ -66,9 +66,9 @@ export default function Home() {
         {/* <div>
           <CheckoutForm />
         </div> */}
-        <div className="sm:mb-12 md:mb-0">
+        {/* <div className="sm:mb-12 md:mb-0">
           <ContactUs />
-        </div>
+        </div> */}
       </main>
     </>
   );
