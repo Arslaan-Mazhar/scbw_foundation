@@ -61,6 +61,7 @@ function DonationForm() {
                 <p className="mt-4">
                   You can donate securely online through our payment gateway:
                 </p>
+                <div className="flex space-between">
                 <Button
                   onClick={handleDonateClick}
                   className="mt-4 inline-block bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
@@ -74,6 +75,7 @@ function DonationForm() {
                 >
                   Donate Online via UBL
                 </Button>
+                </div>
               </div>
             </div>
           </div>

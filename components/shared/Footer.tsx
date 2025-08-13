@@ -58,7 +58,7 @@ const Footer = () => {
               </FooterColumn>
 
               {/* Contact Section */}
-              <FooterColumn title="Contact Us">
+              {/* <FooterColumn title="Contact Us">
                 <div className="flex flex-wrap gap-4 justify-center">
                   {FOOTER_CONTACT_INFO.links.map((link) => (
                     <div key={link.label} className="flex items-center gap-2">
@@ -69,7 +69,7 @@ const Footer = () => {
                     </div>
                   ))}
                 </div>
-              </FooterColumn>
+              </FooterColumn> */}
             </div>
           </div>
         </div>
