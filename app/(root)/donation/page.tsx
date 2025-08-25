@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import Head from "next/head";
@@ -27,7 +26,8 @@ function DonationForm() {
           <div className="container mx-auto text-center">
             <h1 className="text-3xl font-bold">Support Our Mission</h1>
             <p className="mt-2">
-              Your generosity empowers visually impaired individuals to lead independent lives.
+              Your generosity empowers visually impaired individuals to lead
+              independent lives.
             </p>
           </div>
         </header>
@@ -35,7 +35,9 @@ function DonationForm() {
         {/* Donation Methods */}
         <section className="py-4 bg-white">
           <div className="container mx-auto">
-            <h2 className="text-2xl font-bold text-center mb-8">Donation Methods</h2>
+            <h2 className="text-2xl font-bold text-center mb-8">
+              Donation Methods
+            </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Bank Transfer */}
               <div className="bg-gray-50 p-6 shadow-md rounded-lg">
@@ -43,7 +45,8 @@ function DonationForm() {
                 <p className="mt-4">
                   <strong>Bank Name:</strong> UBL
                   <br />
-                  <strong>Account Title:</strong> Special Campaign for Blind Welfare Foundation
+                  <strong>Account Title:</strong> Special Campaign for Blind
+                  Welfare Foundation
                   <br />
                   <strong>Branch Code:</strong> 1244
                   <br />
@@ -62,19 +65,29 @@ function DonationForm() {
                   You can donate securely online through our payment gateway:
                 </p>
                 <div className="flex space-x-4">
-                <Button
-                  onClick={handleDonateClick}
-                  className="mt-4 inline-block bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
-                >
-                  Donate Online via SafePay
-                </Button>
-                <Button
-                  disabled
-                  onClick={handleDonateClick}
-                  className="mt-4 inline-block bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
-                >
-                  Donate Online via UBL
-                </Button>
+                  <Button
+                    onClick={handleDonateClick}
+                    className="mt-4 inline-block bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
+                  >
+                    Donate via SafePay
+                  </Button>
+                  <div className="flex items-center justify-center">
+                    <a
+                      href="https://billing.paypropayments.com/merchantform/scbw-foundation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-block bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
+                    >
+                      Donate via PayPro
+                    </a>
+                  </div>
+                  <Button
+                    disabled
+                    onClick={handleDonateClick}
+                    className="mt-4 inline-block bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
+                  >
+                    Donate Online via UBL
+                  </Button>
                 </div>
               </div>
             </div>
@@ -85,8 +98,9 @@ function DonationForm() {
         <footer className="bg-primary text-white py-6 rounded-full">
           <div className="container mx-auto text-center">
             <p>
-              Thank you for considering supporting our mission. Together, we can empower visually
-              impaired individuals and create a more inclusive society.
+              Thank you for considering supporting our mission. Together, we can
+              empower visually impaired individuals and create a more inclusive
+              society.
             </p>
           </div>
         </footer>
@@ -96,5 +110,3 @@ function DonationForm() {
 }
 
 export default DonationForm;
-
-

@@ -9,10 +9,10 @@ import Head from "next/head";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 const Header = () => {
-  const router = useRouter();
-  const handleDonateClick = () => {
-    router.push("/safePayCheckoutForm"); // Navigate to the CheckoutForm page
-  };
+  // const router = useRouter();
+  // const handleDonateClick = () => {
+  //   router.push("/safePayCheckoutForm"); // Navigate to the CheckoutForm page
+  // };
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   return (
@@ -30,7 +30,7 @@ const Header = () => {
         }  w-full border-b`}
       >
         <div className="flex md:items-center justify-between md:py-1 md:mb-3 rounded-full bg-blue-100">
-          <Link href="/" className=" md:32  ">
+          <Link href="/" className=" md:32  ml-auto">
             <Image
               src="/logo1.png"
               width={128}
@@ -64,12 +64,22 @@ const Header = () => {
           <nav className="md:flex items-center justify-end gap-x-6 hidden w-full max-w-lg lg:mx-40">
             <NavItems />
           </nav>
-          <Button
+          <div className="flex items-center justify-end mr-auto max-w-fit ">
+            <a
+              href="https://billing.paypropayments.com/merchantform/scbw-foundation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lg:inline-block hidden mx-auto bold px-4 py-2 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
+            >
+              Donate Online
+            </a>
+          </div>
+          {/* <Button
             onClick={handleDonateClick}
             className="lg:flex items-center justify-end hidden mx-auto bold px-4 py-4 text-white bg-blue-600 rounded shadow transform hover:scale-105 transition-all duration-300"
           >
             Donate Online
-          </Button>
+          </Button> */}
           <div className="lg:hidden m-7">
             <MobileNav />
           </div>
