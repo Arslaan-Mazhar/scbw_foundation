@@ -174,8 +174,8 @@ export default function MembershipForm() {
                 {/* <Label htmlFor="city">Address</Label> */}
                 <Input id="city" placeholder="Address" value={formData.city} onChange={handleChange} />
               </div>
-              <div className="grid gap-2">
-                {/* <Label htmlFor="country">Country</Label> */}
+            {/*  <div className="grid gap-2">
+                 <Label htmlFor="country">Country</Label> 
                 <select
                   id="country"
                   name="country"
@@ -189,7 +189,7 @@ export default function MembershipForm() {
                     </option>
                   ))}
                 </select>
-              </div>
+              </div> */}
             </CardContent>
             <CardFooter>
               <Button className="w-full transform hover:scale-105 transition-all duration-300" onClick={handleSubmit} >
